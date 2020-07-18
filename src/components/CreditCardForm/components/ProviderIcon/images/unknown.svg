@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+     viewBox="0 0 156 128" version="1.1" id="Layer_1"><style id="style10" type="text/css"></style>
+    <g id="g22"><defs id="defs13"><path id="SVGID_1_" d="M14 26c0-1.1.9-2 2-2h124c1.1 0 2 .9 2 2v76c0 1.1-.9 2-2 2H16c-1.1 0-2-.9-2-2V26z"/></defs>
+        <use id="use15" xlink:href="#SVGID_1_" overflow="visible" fill-rule="evenodd" clip-rule="evenodd"
+             fill="#d9d9d9" />
+        <clipPath id="SVGID_2_"><use id="use17" xlink:href="#SVGID_1_" overflow="visible"/></clipPath>
+        <path id="path20" clip-path="url(#SVGID_2_)"
+              d="M14 26c0-1.1.9-2 2-2h124c1.1 0 2 .9 2 2v76c0 1.1-.9 2-2 2H16c-1.1 0-2-.9-2-2V26z" fill="#d9d9d9"
+              stroke="#cbcbcb" stroke-width="2" stroke-miterlimit="10" /></g>
+    <g id="g62"><defs id="defs55"><path id="SVGID_9_" d="M23.3 75.3c0-1.1.9-2 2-2h105.4c1.1 0 2 .9 2 2v1.3c0 1.1-.9 2-2 2H25.3c-1.1 0-2-.9-2-2v-1.3z"/></defs>
+        <clipPath id="SVGID_10_"><use id="use57" xlink:href="#SVGID_9_" overflow="visible"/></clipPath>
+        <path id="rect60" clip-path="url(#SVGID_10_)" fill="#979797" d="M18.3 68.3h119.3v15.3H18.3z" /></g>
+    <g id="g72"><defs id="defs65"><path id="SVGID_11_" d="M23.3 88.7c0-1.1.9-2 2-2h33.3c1.1 0 2 .9 2 2V90c0 1.1-.9 2-2 2H25.3c-1.1 0-2-.9-2-2v-1.3z"/></defs>
+        <clipPath id="SVGID_12_"><use id="use67" xlink:href="#SVGID_11_" overflow="visible"/></clipPath>
+        <path id="rect70" clip-path="url(#SVGID_12_)" fill="#979797" d="M18.3 81.7h47.3V97H18.3z" /></g>
+    <g id="g82"><defs id="defs75"><path id="SVGID_13_" d="M95.3 88.7c0-1.1.9-2 2-2h33.3c1.1 0 2 .9 2 2V90c0 1.1-.9 2-2 2H97.3c-1.1 0-2-.9-2-2v-1.3z"/></defs>
+        <clipPath id="SVGID_14_"><use id="use77" xlink:href="#SVGID_13_" overflow="visible"/></clipPath>
+        <path id="rect80" clip-path="url(#SVGID_14_)" fill="#979797" d="M90.3 81.7h47.3V97H90.3z" /></g>
+</svg>

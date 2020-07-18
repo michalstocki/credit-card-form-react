@@ -6,7 +6,7 @@ module.exports = {
   mode: 'production',
   devtool: 'source-map',
   resolve: {
-    extensions: ['.ts', '.tsx'],
+    extensions: ['.ts', '.tsx', '.svg'],
   },
   plugins: [new CleanWebpackPlugin()],
   module: {
@@ -29,6 +29,10 @@ module.exports = {
         test: /\.sass$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
         include: path.resolve(__dirname, './src'),
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
     ],
   },

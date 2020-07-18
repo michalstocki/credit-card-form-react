@@ -3,10 +3,12 @@
     "target": "es5",
     "module": "commonjs",
     "lib": ["DOM"],
+    "allowJs": true,
     "jsx": "react",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "include": ["src", "src/svg.d.ts"]
 }

@@ -21,13 +21,18 @@
     "url": "https://github.com/michalstocki/credit-card-form-react/issues"
   },
   "homepage": "https://github.com/michalstocki/credit-card-form-react#readme",
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
   "devDependencies": {
+    "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@storybook/storybook-deployer": "^2.8.6",
+    "@storybook/theming": "^5.3.19",
     "@svgr/webpack": "^5.4.0",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^10.4.7",
+    "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.4",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",

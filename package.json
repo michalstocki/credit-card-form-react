@@ -1,0 +1,31 @@
+{
+  "name": "credit-card-form-react",
+  "version": "1.0.0",
+  "description": "Simple credit card form component in React.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "prettier --check .",
+    "reformat": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michalstocki/credit-card-form-react.git"
+  },
+  "author": "Michał Stocki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michalstocki/credit-card-form-react/issues"
+  },
+  "homepage": "https://github.com/michalstocki/credit-card-form-react#readme",
+  "dependencies": {
+    "styled-components": "^5.1.1",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.7"
+  }
+}

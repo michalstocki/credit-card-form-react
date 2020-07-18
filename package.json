@@ -2,11 +2,13 @@
   "name": "credit-card-form-react",
   "version": "1.0.0",
   "description": "Simple credit card form component in React.js",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "check": "prettier --check .",
-    "reformat": "prettier --write ."
+    "reformat": "prettier --write .",
+    "build": "webpack",
+    "start": "start-storybook"
   },
   "repository": {
     "type": "git",
@@ -19,13 +21,29 @@
   },
   "homepage": "https://github.com/michalstocki/credit-card-form-react#readme",
   "dependencies": {
-    "styled-components": "^5.1.1",
-    "tslib": "^2.0.0"
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
+    "@storybook/react": "^5.3.19",
     "@types/jest": "^26.0.4",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.7"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "source-map-loader": "^1.0.1",
+    "ts-jest": "^26.1.3",
+    "ts-loader": "^8.0.1",
+    "typescript": "^3.9.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.0"
+  },
+  "peerDependencies": {
+    "react-dom": "16.x",
+    "react": "16.x"
   }
 }

@@ -4,4 +4,5 @@ dist
 *.js
 *.js.map
 !jest.*.js
+!*.config.js
 package-lock.json

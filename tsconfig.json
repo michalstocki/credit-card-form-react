@@ -4,7 +4,6 @@
     "module": "commonjs",
     "lib": ["DOM"],
     "jsx": "react",
-    "importHelpers": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

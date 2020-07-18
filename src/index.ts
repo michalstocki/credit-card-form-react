@@ -1,3 +1,3 @@
-import { CreditCardForm } from './components/CreditCardForm';
+import { CreditCardForm } from './components/CreditCardForm/CreditCardForm';
 
 export { CreditCardForm };

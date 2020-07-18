@@ -25,6 +25,11 @@ module.exports = {
         test: /\.js$/,
         loader: 'source-map-loader',
       },
+      {
+        test: /\.sass$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        include: path.resolve(__dirname, './src'),
+      },
     ],
   },
 

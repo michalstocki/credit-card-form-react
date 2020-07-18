@@ -8,7 +8,8 @@
     "check": "prettier --check .",
     "reformat": "prettier --write .",
     "build": "webpack",
-    "start": "start-storybook"
+    "start": "start-storybook",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@storybook/react": "^5.3.19",
+    "@storybook/storybook-deployer": "^2.8.6",
     "@types/jest": "^26.0.4",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",

@@ -9,7 +9,7 @@ export function CreditCardForm(): JSX.Element {
     <div className="credit-card-form">
       <ProviderIcon name={ProviderName.UNKNOWN} />
       <Input
-        placeholder="Card Number"
+        placeholder="Card number"
         className="credit-card-form__input-card-number"
       />
       <Input

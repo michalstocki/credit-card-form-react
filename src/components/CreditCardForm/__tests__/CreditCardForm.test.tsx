@@ -7,7 +7,7 @@ describe('CreditCardForm', () => {
   it('renders Card Input', () => {
     const { getByPlaceholderText } = render(<CreditCardForm />);
 
-    expect(getByPlaceholderText('Card Number')).toBeInTheDocument();
+    expect(getByPlaceholderText('Card number')).toBeInTheDocument();
   });
 
   it('renders expiry date input', () => {

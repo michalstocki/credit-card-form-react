@@ -4,18 +4,18 @@ import './Input.sass';
 
 export interface Props {
   onChange?: (newVal: string) => void;
-  width?: string;
   placeholder?: string;
   autoFocus?: boolean;
   className?: string;
+  value?: string;
 }
 
 export function Input({
-  onChange = () => {},
+  onChange = (value: string) => {},
+  value,
   placeholder,
   autoFocus,
   className = '',
-  width = '',
 }: Props): JSX.Element {
   const changeHandler = useCallback((event) => onChange(event.target.value), [
     onChange,
@@ -24,10 +24,10 @@ export function Input({
     <input
       className={cx('credit-card-form__input', className)}
       type="text"
+      value={value}
       onChange={changeHandler}
       placeholder={placeholder}
       autoFocus={autoFocus}
-      style={{ width: `${width}px` }}
     />
   );
 }

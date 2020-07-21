@@ -1,10 +1,10 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Input } from './components/Input/Input';
-import { ProviderIcon } from './components/ProviderIcon/ProviderIcon';
-import { ProviderName } from './components/ProviderIcon/ProviderName';
+import { IssuerIcon } from './components/IssuerIcon/IssuerIcon';
 import './CreditCardForm.sass';
 import { filterCardNumber } from './value/filterCardNumber';
 import { filterExpiration } from './value/filterExpiration';
+import { getCardIssuerByCardNumber } from './value/getCardIssuerByCardNumber';
 
 export function CreditCardForm(): JSX.Element {
   const [cardNumber, setCardNumber] = useState<string>('');
@@ -12,7 +12,7 @@ export function CreditCardForm(): JSX.Element {
 
   return (
     <div className="credit-card-form">
-      <ProviderIcon name={ProviderName.UNKNOWN} />
+      <IssuerIcon name={getCardIssuerByCardNumber(cardNumber)} />
       <Input
         onChange={filterValue(filterCardNumber, setCardNumber)}
         value={cardNumber}

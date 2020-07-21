@@ -2,22 +2,22 @@ import React from 'react';
 import Mastercard from './images/mastercard.svg';
 import Unknown from './images/unknown.svg';
 import Visa from './images/visa.svg';
-import { ProviderName } from './ProviderName';
-import './ProviderIcon.sass';
+import { IssuerName } from './IssuerName';
+import './IssuerIcon.sass';
 
 interface Props {
-  name: ProviderName;
+  name: IssuerName;
 }
 
-export function ProviderIcon({ name }: Props): JSX.Element {
+export function IssuerIcon({ name }: Props): JSX.Element {
   return <div className="credit-card-form__image">{getIconImage(name)}</div>;
 }
 
-function getIconImage(name: ProviderName): JSX.Element {
+function getIconImage(name: IssuerName): JSX.Element {
   switch (name) {
-    case ProviderName.MASTERCARD:
+    case IssuerName.MASTERCARD:
       return <Mastercard />;
-    case ProviderName.VISA:
+    case IssuerName.VISA:
       return <Visa />;
     default:
       return <Unknown />;

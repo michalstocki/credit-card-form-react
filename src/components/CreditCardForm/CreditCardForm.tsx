@@ -4,9 +4,11 @@ import { ProviderIcon } from './components/ProviderIcon/ProviderIcon';
 import { ProviderName } from './components/ProviderIcon/ProviderName';
 import './CreditCardForm.sass';
 import { filterCardNumber } from './value/filterCardNumber';
+import { filterExpiration } from './value/filterExpiration';
 
 export function CreditCardForm(): JSX.Element {
   const [cardNumber, setCardNumber] = useState<string>('');
+  const [expiration, setExpiration] = useState<string>('');
 
   return (
     <div className="credit-card-form">
@@ -18,6 +20,8 @@ export function CreditCardForm(): JSX.Element {
         className="credit-card-form__input-card-number"
       />
       <Input
+        onChange={filterValue(filterExpiration, setExpiration)}
+        value={expiration}
         placeholder="MM / YY"
         className="credit-card-form__input-expiration"
       />
@@ -27,10 +31,12 @@ export function CreditCardForm(): JSX.Element {
 }
 
 function filterValue<T>(
-  valueFilter: (v: T) => T,
+  valueFilter: (v: T, prevValue: T) => T,
   setValue: Dispatch<SetStateAction<T>>
 ): (v: T) => void {
   return (newValue: T) => {
-    setValue(valueFilter(newValue));
+    setValue((prevValue) => {
+      return valueFilter(newValue, prevValue);
+    });
   };
 }

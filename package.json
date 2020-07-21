@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/michalstocki/credit-card-form-react#readme",
   "dependencies": {
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "moment": "^2.27.0"
   },
   "devDependencies": {
     "@storybook/addons": "^5.3.19",

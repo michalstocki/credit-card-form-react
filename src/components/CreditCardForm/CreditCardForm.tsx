@@ -3,12 +3,14 @@ import { Input } from './components/Input/Input';
 import { IssuerIcon } from './components/IssuerIcon/IssuerIcon';
 import './CreditCardForm.sass';
 import { filterCardNumber } from './value/filterCardNumber';
+import { filterCVC } from './value/filterCVC';
 import { filterExpiration } from './value/filterExpiration';
 import { getCardIssuerByCardNumber } from './value/getCardIssuerByCardNumber';
 
 export function CreditCardForm(): JSX.Element {
   const [cardNumber, setCardNumber] = useState<string>('');
   const [expiration, setExpiration] = useState<string>('');
+  const [cvc, setCVC] = useState<string>('');
 
   return (
     <div className="credit-card-form">
@@ -25,7 +27,12 @@ export function CreditCardForm(): JSX.Element {
         placeholder="MM / YY"
         className="credit-card-form__input-expiration"
       />
-      <Input placeholder="CVC" className="credit-card-form__input-cvc" />
+      <Input
+        onChange={filterValue(filterCVC, setCVC)}
+        value={cvc}
+        placeholder="CVC"
+        className="credit-card-form__input-cvc"
+      />
     </div>
   );
 }

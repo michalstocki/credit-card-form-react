@@ -6,6 +6,11 @@ import { filterCardNumber } from './value/filterCardNumber';
 import { filterCVC } from './value/filterCVC';
 import { filterExpiration } from './value/filterExpiration';
 import { getCardIssuerByCardNumber } from './value/getCardIssuerByCardNumber';
+import { validateExpiry } from './value/validateExpiry';
+
+export const CARD_INPUT_CLASS = 'credit-card-form__input-card-number';
+export const EXPIRY_INPUT_CLASS = 'credit-card-form__input-expiration';
+export const CVC_INPUT_CLASS = 'credit-card-form__input-cvc';
 
 export function CreditCardForm(): JSX.Element {
   const [cardNumber, setCardNumber] = useState<string>('');
@@ -19,19 +24,20 @@ export function CreditCardForm(): JSX.Element {
         onChange={filterValue(filterCardNumber, setCardNumber)}
         value={cardNumber}
         placeholder="Card number"
-        className="credit-card-form__input-card-number"
+        className={CARD_INPUT_CLASS}
       />
       <Input
         onChange={filterValue(filterExpiration, setExpiration)}
+        errorMessage={validateExpiry(expiration)}
         value={expiration}
         placeholder="MM / YY"
-        className="credit-card-form__input-expiration"
+        className={EXPIRY_INPUT_CLASS}
       />
       <Input
         onChange={filterValue(filterCVC, setCVC)}
         value={cvc}
         placeholder="CVC"
-        className="credit-card-form__input-cvc"
+        className={CVC_INPUT_CLASS}
       />
     </div>
   );

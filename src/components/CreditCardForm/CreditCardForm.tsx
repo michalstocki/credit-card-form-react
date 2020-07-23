@@ -12,6 +12,10 @@ export const CARD_INPUT_CLASS = 'credit-card-form__input-card-number';
 export const EXPIRY_INPUT_CLASS = 'credit-card-form__input-expiration';
 export const CVC_INPUT_CLASS = 'credit-card-form__input-cvc';
 
+export const CARD_NUMBER_PLACEHOLDER = 'Card number';
+export const EXPIRY_PLACEHOLDER = 'MM / YY';
+export const CVC_PLACEHOLDER = 'CVC';
+
 enum InputName {
   CARD_NUMBER = 'cardNumber',
   EXPIRY = 'expiry',
@@ -54,6 +58,8 @@ export function CreditCardForm(): JSX.Element {
           !getExpiryValidationError(formattedValue)
         ) {
           setPendingFocusInit(InputName.CVC);
+        } else if (formattedValue.length === 0 && prevVal.length > 0) {
+          setPendingFocusInit(InputName.CARD_NUMBER);
         }
 
         return formattedValue;
@@ -64,9 +70,17 @@ export function CreditCardForm(): JSX.Element {
 
   const handleCVCChange = useCallback(
     (newVal) => {
-      setCVC(filterCVC(newVal));
+      setCVC((prevValue) => {
+        const formattedValue = filterCVC(newVal);
+
+        if (formattedValue.length === 0 && prevValue.length > 0) {
+          setPendingFocusInit(InputName.EXPIRY);
+        }
+
+        return formattedValue;
+      });
     },
-    [setCVC]
+    [setCVC, setPendingFocusInit]
   );
 
   return (
@@ -75,7 +89,7 @@ export function CreditCardForm(): JSX.Element {
       <Input
         onChange={handleCardNumberChange}
         value={cardNumber}
-        placeholder="Card number"
+        placeholder={CARD_NUMBER_PLACEHOLDER}
         className={CARD_INPUT_CLASS}
         name={InputName.CARD_NUMBER}
         initFocus={pendingFocusInit === InputName.CARD_NUMBER}
@@ -85,7 +99,7 @@ export function CreditCardForm(): JSX.Element {
         onChange={handleExpiryChange}
         errorMessage={getExpiryValidationError(expiration)}
         value={expiration}
-        placeholder="MM / YY"
+        placeholder={EXPIRY_PLACEHOLDER}
         className={EXPIRY_INPUT_CLASS}
         name={InputName.EXPIRY}
         initFocus={pendingFocusInit === InputName.EXPIRY}
@@ -94,7 +108,7 @@ export function CreditCardForm(): JSX.Element {
       <Input
         onChange={handleCVCChange}
         value={cvc}
-        placeholder="CVC"
+        placeholder={CVC_PLACEHOLDER}
         className={CVC_INPUT_CLASS}
         name={InputName.CVC}
         initFocus={pendingFocusInit === InputName.CVC}

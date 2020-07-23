@@ -3,24 +3,29 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { CreditCardForm } from '../../../index';
 import { INPUT_ERROR_CLASS } from '../components/Input/Input';
+import {
+  CARD_NUMBER_PLACEHOLDER,
+  CVC_PLACEHOLDER,
+  EXPIRY_PLACEHOLDER,
+} from '../CreditCardForm';
 
 describe('CreditCardForm', () => {
   it('renders Card Input', () => {
     const { getByPlaceholderText } = render(<CreditCardForm />);
 
-    expect(getByPlaceholderText('Card number')).toBeInTheDocument();
+    expect(getByPlaceholderText(CARD_NUMBER_PLACEHOLDER)).toBeInTheDocument();
   });
 
   it('renders expiry date input', () => {
     const { getByPlaceholderText } = render(<CreditCardForm />);
 
-    expect(getByPlaceholderText('MM / YY')).toBeInTheDocument();
+    expect(getByPlaceholderText(EXPIRY_PLACEHOLDER)).toBeInTheDocument();
   });
 
   it('renders CVC code input', () => {
     const { getByPlaceholderText } = render(<CreditCardForm />);
 
-    expect(getByPlaceholderText('CVC')).toBeInTheDocument();
+    expect(getByPlaceholderText(CVC_PLACEHOLDER)).toBeInTheDocument();
   });
 
   describe('when typed 16 digits in card number input', () => {
@@ -30,8 +35,12 @@ describe('CreditCardForm', () => {
     beforeEach(() => {
       const { getByPlaceholderText } = render(<CreditCardForm />);
 
-      cardInput = getByPlaceholderText('Card number') as HTMLInputElement;
-      expiryInput = getByPlaceholderText('MM / YY') as HTMLInputElement;
+      cardInput = getByPlaceholderText(
+        CARD_NUMBER_PLACEHOLDER
+      ) as HTMLInputElement;
+      expiryInput = getByPlaceholderText(
+        EXPIRY_PLACEHOLDER
+      ) as HTMLInputElement;
 
       cardInput.focus();
       fireEvent.input(cardInput, {
@@ -49,7 +58,7 @@ describe('CreditCardForm', () => {
       await waitFor(() => {
         expect(
           (document.activeElement as HTMLInputElement).placeholder
-        ).toEqual('MM / YY');
+        ).toEqual(EXPIRY_PLACEHOLDER);
       });
     });
   });
@@ -61,8 +70,10 @@ describe('CreditCardForm', () => {
     beforeEach(() => {
       const { getByPlaceholderText } = render(<CreditCardForm />);
 
-      expiryInput = getByPlaceholderText('MM / YY') as HTMLInputElement;
-      cvcInput = getByPlaceholderText('CVC') as HTMLInputElement;
+      expiryInput = getByPlaceholderText(
+        EXPIRY_PLACEHOLDER
+      ) as HTMLInputElement;
+      cvcInput = getByPlaceholderText(CVC_PLACEHOLDER) as HTMLInputElement;
 
       expiryInput.focus();
       fireEvent.input(expiryInput, {
@@ -88,7 +99,7 @@ describe('CreditCardForm', () => {
       await waitFor(() => {
         expect(
           (document.activeElement as HTMLInputElement).placeholder
-        ).toEqual('MM / YY');
+        ).toEqual(EXPIRY_PLACEHOLDER);
       });
     });
   });
@@ -100,8 +111,10 @@ describe('CreditCardForm', () => {
     beforeEach(() => {
       const { getByPlaceholderText } = render(<CreditCardForm />);
 
-      expiryInput = getByPlaceholderText('MM / YY') as HTMLInputElement;
-      cvcInput = getByPlaceholderText('CVC') as HTMLInputElement;
+      expiryInput = getByPlaceholderText(
+        EXPIRY_PLACEHOLDER
+      ) as HTMLInputElement;
+      cvcInput = getByPlaceholderText(CVC_PLACEHOLDER) as HTMLInputElement;
 
       expiryInput.focus();
       fireEvent.input(expiryInput, {
@@ -127,7 +140,69 @@ describe('CreditCardForm', () => {
       await waitFor(() => {
         expect(
           (document.activeElement as HTMLInputElement).placeholder
-        ).toEqual('CVC');
+        ).toEqual(CVC_PLACEHOLDER);
+      });
+    });
+  });
+
+  describe('when cleared the CVC field', () => {
+    let expiryInput: HTMLInputElement;
+    let cvcInput: HTMLInputElement;
+
+    beforeEach(() => {
+      const { getByPlaceholderText } = render(<CreditCardForm />);
+
+      expiryInput = getByPlaceholderText(
+        EXPIRY_PLACEHOLDER
+      ) as HTMLInputElement;
+      cvcInput = getByPlaceholderText(CVC_PLACEHOLDER) as HTMLInputElement;
+
+      cvcInput.focus();
+      fireEvent.input(cvcInput, {
+        target: { value: '33' },
+      });
+      fireEvent.input(cvcInput, {
+        target: { value: '' },
+      });
+    });
+
+    it('moves focus to the expiry field', async () => {
+      await waitFor(() => {
+        expect(
+          (document.activeElement as HTMLInputElement).placeholder
+        ).toEqual(EXPIRY_PLACEHOLDER);
+      });
+    });
+  });
+
+  describe('when cleared the expiry field', () => {
+    let cardInput: HTMLInputElement;
+    let expiryInput: HTMLInputElement;
+
+    beforeEach(() => {
+      const { getByPlaceholderText } = render(<CreditCardForm />);
+
+      cardInput = getByPlaceholderText(
+        CARD_NUMBER_PLACEHOLDER
+      ) as HTMLInputElement;
+      expiryInput = getByPlaceholderText(
+        EXPIRY_PLACEHOLDER
+      ) as HTMLInputElement;
+
+      expiryInput.focus();
+      fireEvent.input(expiryInput, {
+        target: { value: '12' },
+      });
+      fireEvent.input(expiryInput, {
+        target: { value: '' },
+      });
+    });
+
+    it('moves focus to the card number field', async () => {
+      await waitFor(() => {
+        expect(
+          (document.activeElement as HTMLInputElement).placeholder
+        ).toEqual(CARD_NUMBER_PLACEHOLDER);
       });
     });
   });

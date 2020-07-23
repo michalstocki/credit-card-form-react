@@ -1,7 +1,7 @@
 import { using } from '../../../../testUtils/using';
-import { validateExpiry } from '../validateExpiry';
+import { getExpiryValidationError } from '../getExpiryValidationError';
 
-describe('validateExpiry', () => {
+describe('getExpiryValidationError', () => {
   interface Case {
     caseName: string;
     input: string;
@@ -66,7 +66,7 @@ describe('validateExpiry', () => {
 
   using(cases).describe('when input', ({ caseName, input, expectedOutput }) => {
     it(`is ${input} – ${caseName}`, () => {
-      expect(validateExpiry(input)).toEqual(expectedOutput);
+      expect(getExpiryValidationError(input)).toEqual(expectedOutput);
     });
   });
 });

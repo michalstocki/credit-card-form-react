@@ -1,6 +1,8 @@
 import moment from 'moment';
 
-export function validateExpiry(expiryValue: string): string | undefined {
+export function getExpiryValidationError(
+  expiryValue: string
+): string | undefined {
   const [montString, yearString] = expiryValue.split(' / ');
 
   if (montString.length < 2 || !yearString || yearString.length < 2) {

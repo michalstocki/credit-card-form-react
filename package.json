@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@storybook/addons": "^5.3.19",
-    "@storybook/react": "^5.3.19",
+    "@storybook/react": "^7.0.6",
     "@storybook/storybook-deployer": "^2.8.6",
     "@storybook/theming": "^5.3.19",
     "@svgr/webpack": "^5.4.0",
